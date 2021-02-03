@@ -17,7 +17,7 @@ module Spree
     end
 
     def seo_images
-      return [] unless gallery.images.first.attachment.file?
+      return [] unless gallery.images.any? && gallery.images.first.attachment.file?
 
       [
         url_helper.image_url(gallery.images.first.attachment.url(:large), host: store_host),
